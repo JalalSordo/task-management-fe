@@ -11,12 +11,15 @@
   </div>
   <div class="form-control">
     <label for="day">Day & Time</label>
+
     <input
-      type="text"
-      name="day"
-      [(ngModel)]="day"
-      id="day"
-      placeholder="Add Day & Time"
+      min="{{ minDate }}"
+      name="dueDate"
+      placeholder="Add Day"
+      [(ngModel)]="dueDate"
+      class="textbox-n"
+      type="datetime-local"
+      id="dueDate"
     />
   </div>
   <div class="form-control form-control-check">

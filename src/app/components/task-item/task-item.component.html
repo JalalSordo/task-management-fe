@@ -11,5 +11,5 @@
       [icon]="faTimes"
     ></fa-icon>
   </h3>
-  <p>{{ task.day }}</p>
+  <p>{{ task.dueDate | date :'dd/MM/yyyy HH:mm'}}</p>
 </div>

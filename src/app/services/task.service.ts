@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { finalize, switchMap, debounce, distinctUntilChanged, tap} from 
+'rxjs/operators';
 import { Task } from '../Task';
 
 const httpOptions = {
@@ -18,7 +20,10 @@ export class TaskService {
   constructor(private http: HttpClient) {}
 
   getTasks(): Observable<Task[]> {
-    return this.http.get<Task[]>(this.apiUrl);
+    
+    return this.http.get<Task[]>(this.apiUrl).pipe(
+      tap((tasks) => console.log(tasks))
+    );
   }
 
   deleteTask(task: Task): Observable<Task> {
