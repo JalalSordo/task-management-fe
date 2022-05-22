@@ -15,7 +15,7 @@ const httpOptions = {
   providedIn: 'root',
 })
 export class TaskService {
-  private apiUrl = 'http://localhost:5000/tasks';
+  private apiUrl = 'http://localhost:8080/tasks';
 
   constructor(private http: HttpClient) {}
 
@@ -32,7 +32,7 @@ export class TaskService {
   }
 
   updateTaskReminder(task: Task): Observable<Task> {
-    const url = `${this.apiUrl}/${task.id}`;
+    const url = `${this.apiUrl}`;
     return this.http.put<Task>(url, task, httpOptions);
   }
 
