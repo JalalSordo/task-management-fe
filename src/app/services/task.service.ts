@@ -24,6 +24,7 @@ export class TaskService {
     return this.http.get<Task[]>(this.apiUrl).pipe(
       tap((tasks) => console.log(tasks))
     );
+    
   }
 
   deleteTask(task: Task): Observable<Task> {
